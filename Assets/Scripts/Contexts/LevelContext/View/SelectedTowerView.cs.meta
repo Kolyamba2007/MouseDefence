@@ -1,0 +1,12 @@
+fileFormatVersion: 2
+guid: c0c97ee2a267f1c4193224520f8121b8
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - towerSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

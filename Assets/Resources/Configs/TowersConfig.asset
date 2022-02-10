@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27512345d7bb1e24a93f8409ac892950, type: 3}
+  m_Name: TowersConfig
+  m_EditorClassIdentifier: 
+  _towerData:
+    reorderableList:
+      canAdd: 1
+      canRemove: 1
+      draggable: 1
+      expandable: 1
+      multipleSelection: 1
+      isExpanded: 1
+      label:
+        m_Text: Keys
+        m_Image: {fileID: 0}
+        m_Tooltip: 
+      headerHeight: 18
+      footerHeight: 13
+      slideEasing: 0.15
+      verticalSpacing: 2
+      showDefaultBackground: 1
+      elementDisplayType: 0
+      elementNameProperty: 
+      elementNameOverride: 
+      elementIcon: {fileID: 0}
+    reqReferences: {fileID: 0}
+    isExpanded: 1
+    _keyValues:
+    - Laser Turret
+    - Catapult
+    _keys:
+    - Laser Turret
+    - Catapult
+    _values:
+    - _buttonSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
+      _maxHealth: 100
+      _damage: 10
+      _attackSpeed: 2
+      _attackDistance: 10
+      _cost: 50
+      _cooldown: 10
+      _projectileView: {fileID: -853157315563300736, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
+    - _buttonSprite: {fileID: 21300000, guid: cde89bc4303439343b37f582a5cbb22e, type: 3}
+      _maxHealth: 100
+      _damage: 10
+      _attackSpeed: 3
+      _attackDistance: 10
+      _cost: 50
+      _cooldown: 11
+      _projectileView: {fileID: -853157315563300736, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
