@@ -16,7 +16,9 @@ public class EnemyWave : View
     private List<EnemySpawnEventData> _enemySpawnData;
     private float _preparationTime;
 
-    private Dictionary<string, EnemyView> _enemyPrefab = new Dictionary<string, EnemyView>();
+    private Dictionary<string, EnemyView> _enemyPrefab;
+
+    public Coroutine ManufactureCoroutine { get; private set; }
 
     public Signal<IdentifiableView, IUnitData, int, Vector2> CreateEnemySignal { get;  } = new Signal<IdentifiableView, IUnitData, int, Vector2>();
 
@@ -33,6 +35,7 @@ public class EnemyWave : View
 
         _ = temp.Distinct().ToList();
 
+        _enemyPrefab = new Dictionary<string, EnemyView>();
         foreach (var e in gameConfig.GetEnemyViews)
             if (temp.Contains(e.Name)) _enemyPrefab.Add(e.Name, e);
     }
@@ -44,7 +47,7 @@ public class EnemyWave : View
         foreach (EnemySpawnEventData e in _enemySpawnData)
         {
             CreateEnemySignal.Dispatch(_enemyPrefab[e.EnemyID], _enemyData[e.EnemyID], e.LineNumber, _positions[e.LineNumber].position);
-
+            
             yield return new WaitForSeconds(e.BreakTime);
         }
 
@@ -56,6 +59,6 @@ public class EnemyWave : View
         if (_enemySpawnData is null)
             throw new Exception($"{_enemySpawnData} not set");
         else
-            StartCoroutine(Manufacture());
+            ManufactureCoroutine = StartCoroutine(Manufacture());
     }
 }

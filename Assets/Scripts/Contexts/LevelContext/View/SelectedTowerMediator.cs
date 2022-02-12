@@ -13,7 +13,6 @@ public class SelectedTowerMediator : ViewMediator<SelectedTowerView>
     public override void OnRemove()
     {
         DestroyTempTowerSignal.RemoveListener(OnNewCreated);
-        Debug.Log("Mediator OnRemove");
     }
 
     private void OnNewCreated()

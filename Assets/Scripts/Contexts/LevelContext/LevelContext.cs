@@ -51,6 +51,10 @@ public class LevelContext : MVCSContext
             .Bind<EnemyWave>()
             .To<EnemyWaveMediator>();
 
+        mediationBinder
+            .Bind<LosingTrigger>()
+            .To<LosingTriggerMediator>();
+
         commandBinder
             .Bind<ChooseTowerSignal>()
             .To<ChooseTowerCommand>();

@@ -38,8 +38,12 @@ public class LevelUIContext : MVCSContext
             .Bind<StartLevelMenuView>()
             .To<StartLevelMenuMediator>();
 
+        mediationBinder
+            .Bind<PauseMenuView>()
+            .To<PauseMenuMediator>();
+
         commandBinder
-            .Bind<LoadLevelSignal>()
-            .To<InitLevelUICommand>();
+            .Bind<SetContextActiveRecursivelySignal>()
+            .To<SetContextActiveRecursivelyCommand>();
     }
 }

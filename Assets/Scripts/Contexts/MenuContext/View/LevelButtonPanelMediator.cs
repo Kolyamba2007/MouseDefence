@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class LevelButtonPanelMediator : ViewMediator<LevelButtonPanelView>
 {
     [Inject] public GameConfig GameConfig { get; set; }
@@ -7,9 +5,5 @@ public class LevelButtonPanelMediator : ViewMediator<LevelButtonPanelView>
     public override void OnRegister()
     {
         View.Init(GameConfig.GetLevelConfigs);
-    }
-
-    public override void OnRemove()
-    {
     }
 }

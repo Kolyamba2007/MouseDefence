@@ -74,7 +74,7 @@ public class MainContext : MVCSContext
         injectionBinder
             .Bind<LoadLevelSignal>()
             .ToSingleton()
-            .CrossContext();//???
+            .CrossContext();
 
         injectionBinder
            .Bind<StartLevelSignal>()
@@ -98,6 +98,21 @@ public class MainContext : MVCSContext
 
         injectionBinder
            .Bind<DestroyUnitSignal>()
+           .ToSingleton()
+           .CrossContext();
+
+        injectionBinder
+           .Bind<ClearLevelSignal>()
+           .ToSingleton()
+           .CrossContext();
+
+        injectionBinder
+           .Bind<RestartLevelSignal>()
+           .ToSingleton()
+           .CrossContext();
+
+        injectionBinder
+           .Bind<SetContextActiveRecursivelySignal>()
            .ToSingleton()
            .CrossContext();
     }

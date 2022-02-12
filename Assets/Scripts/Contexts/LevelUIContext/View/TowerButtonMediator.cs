@@ -1,14 +1,13 @@
-using System.Collections.Generic;
-using UnityEngine;
-
 public class TowerButtonMediator : ViewMediator<TowerButtonView>
 {
 	[Inject] public GameConfig GameConfig { get; set; }
 	[Inject] public StartLevelSignal StartLevelSignal { get; set; }
 	[Inject] public ChooseTowerSignal ChooseTowerSignal { get; set; }
+	[Inject] public ClearLevelSignal ClearLevelSignal { get; set; }
 
 	public override void OnRegister()
 	{
+		ClearLevelSignal.AddOnce(() => Destroy(gameObject));
 		StartLevelSignal.AddListener(OnLevelStart);
 		View.ButtonClickedSignal.AddListener(() => View.ChangeRootTable());
 	}
@@ -31,6 +30,5 @@ public class TowerButtonMediator : ViewMediator<TowerButtonView>
 	{
 		StartLevelSignal.RemoveListener(OnLevelStart);
 		View.ButtonClickedSignal.RemoveAllListeners();
-		Debug.Log("Mediator OnRemove");
 	}
 }
