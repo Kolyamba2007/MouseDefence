@@ -115,5 +115,10 @@ public class MainContext : MVCSContext
            .Bind<SetContextActiveRecursivelySignal>()
            .ToSingleton()
            .CrossContext();
+
+        injectionBinder
+           .Bind<FinishLevelSignal>()
+           .ToSingleton()
+           .CrossContext();
     }
 }

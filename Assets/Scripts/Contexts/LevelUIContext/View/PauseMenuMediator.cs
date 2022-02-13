@@ -1,13 +1,11 @@
-using strange.extensions.context.api;
 using UnityEngine;
 
 public class PauseMenuMediator : ViewMediator<PauseMenuView>
 {
     private Controls controls;
 
-    [Inject(ContextKeys.CONTEXT_VIEW)] public GameObject ContextView { get; set; }
-
     [Inject] public LoadLevelSignal LoadLevelSignal { get; set; }
+    [Inject] public FinishLevelSignal FinishLevelSignal { get; set; }
     [Inject] public ClearLevelSignal ClearLevelSignal { get; set; }
     [Inject] public RestartLevelSignal RestartLevelSignal { get; set; }
     [Inject] public SetContextActiveRecursivelySignal SetContextActiveRecursivelySignal { get; set; }
@@ -19,10 +17,8 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
 
     public override void OnRegister()
     {
-        View.Init();
-        
         LoadLevelSignal.AddListener((_) => controls.Enable());
-        //FinishLevelSignal.AddListener((x) => controls.Disable());
+        FinishLevelSignal.AddListener((_) => controls.Disable());
 
         controls.UI.PauseMenu.started += (_) => OnMenuCall();
         View.ClickRestartButton.AddListener(() =>
@@ -37,12 +33,11 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
 
             OnMenuCall();
             ClearLevelSignal.Dispatch();
-
-            RestartLevelSignal.RemoveAllListeners();
-
+            //RestartLevelSignal.RemoveAllListeners();
             SetContextActiveRecursivelySignal.Dispatch();
         });
         View.MenuCallSignal.AddListener(OnMenuCall);
+        gameObject.SetActive(false);
     }
 
     public override void OnRemove()

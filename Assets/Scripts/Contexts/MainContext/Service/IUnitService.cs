@@ -8,5 +8,7 @@ public interface IUnitService
 
     void Remove(IdentifiableView[] views);
 
+    int Count<T>();
+
     void SetDamage(IdentifiableView view, int damage);
 }

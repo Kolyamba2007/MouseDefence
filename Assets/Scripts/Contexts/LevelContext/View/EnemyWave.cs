@@ -20,6 +20,7 @@ public class EnemyWave : View
 
     public Coroutine ManufactureCoroutine { get; private set; }
 
+    public Signal CheckEnemyCountSignal { get; } = new Signal();
     public Signal<IdentifiableView, IUnitData, int, Vector2> CreateEnemySignal { get;  } = new Signal<IdentifiableView, IUnitData, int, Vector2>();
 
     public void SetData(LevelConfig levelConfig, GameConfig gameConfig)
@@ -51,7 +52,11 @@ public class EnemyWave : View
             yield return new WaitForSeconds(e.BreakTime);
         }
 
-        yield break;
+        while (true)
+        {
+            CheckEnemyCountSignal.Dispatch();
+            yield return new WaitForSeconds(2);
+        }
     }
 
     public void StartManufacture()
@@ -60,5 +65,11 @@ public class EnemyWave : View
             throw new Exception($"{_enemySpawnData} not set");
         else
             ManufactureCoroutine = StartCoroutine(Manufacture());
+    }
+
+    public void StopManufacture()
+    {
+        if (ManufactureCoroutine != null)
+            StopCoroutine(ManufactureCoroutine);
     }
 }

@@ -42,6 +42,14 @@ public class LevelUIContext : MVCSContext
             .Bind<PauseMenuView>()
             .To<PauseMenuMediator>();
 
+        mediationBinder
+            .Bind<ResultMenuView>()
+            .To<ResultMenuMediator>();
+
+        mediationBinder
+            .Bind<CheeseCountView>()
+            .To<CheeseCountMediator>();
+
         commandBinder
             .Bind<SetContextActiveRecursivelySignal>()
             .To<SetContextActiveRecursivelyCommand>();

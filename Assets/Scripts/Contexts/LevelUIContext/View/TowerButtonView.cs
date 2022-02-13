@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public partial class TowerButtonView : View
 {
+    [SerializeField] private Image _buttonImage;
+    [SerializeField] private Text _costText;
+    [SerializeField] private Text _nameText;
+
     private Transform _selectionPanelRoot;
     private Transform _towerPanelRoot;
 
@@ -22,8 +26,9 @@ public partial class TowerButtonView : View
 
     public void Init()
     {
-        GetComponent<Image>().sprite = TowerData.ButtonSprite;
-        GetComponentInChildren<Text>().text = id;
+        _buttonImage.sprite = TowerData.ButtonSprite;
+        _costText.text = TowerData.Cost.ToString();
+        _nameText.text = id;
     }
 
     public void SetData(string id, TowerData towerData, Transform towerPanelRoot)

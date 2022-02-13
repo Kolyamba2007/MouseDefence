@@ -1,14 +1,18 @@
-using UnityEngine;
-
 public class LosingTriggerMediator : ViewMediator<LosingTrigger>
 {
+    [Inject] public LoadLevelSignal LoadLevelSignal { get; set; }
+    [Inject] public FinishLevelSignal FinishLevelSignal { get; set; }
+
     public override void OnRegister()
     {
-        View.FinishGameSignal.AddListener(() => Debug.Log("Losing")); ;
+        LoadLevelSignal.AddListener((_) =>
+            View.FinishGameSignal.AddOnce(() =>
+                FinishLevelSignal.Dispatch("Loss")));
     }
 
     public override void OnRemove()
     {
+        LoadLevelSignal.RemoveAllListeners();
         View.FinishGameSignal.RemoveAllListeners();
     }
 }

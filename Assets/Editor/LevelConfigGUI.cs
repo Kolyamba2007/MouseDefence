@@ -6,7 +6,10 @@ using System.Collections.Generic;
 public class LevelConfigGUI : Editor
 {
     private LevelConfig _levelConfig;
-    
+
+    SerializedProperty _cheeseCount;
+    SerializedProperty _preparationTime;
+
     private int _towerCount;
     private int[] _towerIndex;
     private List<string> _towerSelection;
@@ -23,6 +26,9 @@ public class LevelConfigGUI : Editor
     {
         _levelConfig = (LevelConfig)target;
         var gameConfig = GameConfig.Load();
+
+        _cheeseCount = serializedObject.FindProperty("_cheeseCount");
+        _preparationTime = serializedObject.FindProperty("_preparationTime");
 
         _towerSelection = new List<string>();
         foreach (var tower in gameConfig.GetTowerViews)
@@ -60,6 +66,12 @@ public class LevelConfigGUI : Editor
 
     public override void OnInspectorGUI()
     {
+        serializedObject.Update();
+
+        GUILayout.Label("Cheese Count", GUILayout.Height(20));
+        _cheeseCount.intValue = EditorGUILayout.IntField(_cheeseCount.intValue);
+        if (_cheeseCount.intValue < 0) _cheeseCount.intValue = 0;
+
         GUILayout.Label("Available Towers", GUILayout.Height(20));
         GUILayout.BeginVertical("box");
             GUILayout.BeginHorizontal();
@@ -88,7 +100,7 @@ public class LevelConfigGUI : Editor
                 GUILayout.Label("Count:");
                 _enemyCount = EditorGUILayout.IntField(_enemyCount);
                 GUILayout.Label("Preparation Time:");
-                _levelConfig.PreparationTime = EditorGUILayout.FloatField(_levelConfig.PreparationTime);
+                _preparationTime.floatValue = EditorGUILayout.FloatField(_preparationTime.floatValue);
             GUILayout.EndHorizontal();
 
             GUILayout.Space(5f);
@@ -98,7 +110,7 @@ public class LevelConfigGUI : Editor
                 GUILayout.Label("Break Time");
             GUILayout.EndHorizontal();
 
-            if (_levelConfig.PreparationTime < 0) _levelConfig.PreparationTime = 0;
+            if (_preparationTime.floatValue < 0) _preparationTime.floatValue = 0;
             if (_enemyCount < 0) _enemyCount = 0;
             if (_enemyIndex is null || _enemyIndex.Length != _enemyCount)
             {
@@ -122,6 +134,8 @@ public class LevelConfigGUI : Editor
                 _levelConfig.EnemiesSpawnData.Add(new EnemySpawnEventData(_enemySelection[_enemyIndex[i]], _enemyLineNumber[i], _enemyBreakTime[i]));
             }
         GUILayout.EndVertical();
+
+        serializedObject.ApplyModifiedProperties();
 
         if (GUI.changed)
             EditorUtility.SetDirty(_levelConfig);

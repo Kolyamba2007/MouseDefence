@@ -22,9 +22,4 @@ public class PauseMenuView : View
         _mainMenuButton.onClick.AddListener(() => ClickMainMenuButton.Dispatch());
         _backToGameButton.onClick.AddListener(() => MenuCallSignal.Dispatch());
     }
-
-    public void Init()
-    {
-        gameObject.SetActive(false);
-    }
 }

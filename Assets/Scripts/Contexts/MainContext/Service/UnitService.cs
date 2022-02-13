@@ -13,6 +13,7 @@ public class UnitService : IUnitService
         ushort id = GetID();
 
         UnitState.Health.Add(id, data.MaxHealth);
+        UnitState.UnitTypes.AddLast(view.GetType().Name);
 
         ProduceUnitSignal.Dispatch(view, data, new UnitViewData(id, line, position));
     }
@@ -25,17 +26,28 @@ public class UnitService : IUnitService
             KillUnit(view);
     }
 
+    public int Count<T>()
+    {
+        int count = 0;
+        string type = typeof(T).Name;
+
+        foreach(var unitType in UnitState.UnitTypes)
+            if (unitType == type) count++;
+
+        return count;
+    }
+
     public void SetDamage(IdentifiableView view, int damage)
     {
         var health = UnitState.Health[view.ID] -= damage;
 
-        if (health <= 0)
-            KillUnit(view);
+        if (health <= 0) KillUnit(view);
     }
 
     private void KillUnit(IdentifiableView view) 
     {
         UnitState.Health.Remove(view.ID);
+        UnitState.UnitTypes.Remove(view.GetType().Name);
         DestroyUnitSignal.Dispatch(view);
     }
 
