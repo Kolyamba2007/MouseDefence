@@ -50,6 +50,12 @@ public class MainContext : MVCSContext
             .CrossContext();
 
         injectionBinder
+            .Bind<ICheeseState>()
+            .To<CheeseState>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
             .Bind<GameConfig>()
             .To(GameConfig.Load())
             .ToSingleton()
@@ -65,6 +71,12 @@ public class MainContext : MVCSContext
         injectionBinder
             .Bind<IUnitService>()
             .To<UnitService>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
+            .Bind<ICheeseService>()
+            .To<CheeseService>()
             .ToSingleton()
             .CrossContext();
     }
@@ -118,6 +130,16 @@ public class MainContext : MVCSContext
 
         injectionBinder
            .Bind<FinishLevelSignal>()
+           .ToSingleton()
+           .CrossContext();
+
+        injectionBinder
+           .Bind<UpdateCheeseCountSignal>()
+           .ToSingleton()
+           .CrossContext();
+
+        injectionBinder
+           .Bind<TowerCreatedSignal>()
            .ToSingleton()
            .CrossContext();
     }

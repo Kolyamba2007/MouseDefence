@@ -13,7 +13,7 @@ public class StartLevelMenuMediator : ViewMediator<StartLevelMenuView>
 		LoadLevelSignal.AddListener((levelConfig) =>
 		{
 			gameObject.SetActive(true);
-			View.Init(levelConfig, GameConfig.GetTowersConfig);
+			View.Init(levelConfig, GameConfig);
 		});
 	}
 

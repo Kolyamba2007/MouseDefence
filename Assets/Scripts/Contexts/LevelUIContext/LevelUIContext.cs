@@ -53,5 +53,9 @@ public class LevelUIContext : MVCSContext
         commandBinder
             .Bind<SetContextActiveRecursivelySignal>()
             .To<SetContextActiveRecursivelyCommand>();
+
+        injectionBinder
+           .Bind<PauseMenuCallSignal>()
+           .ToSingleton();
     }
 }

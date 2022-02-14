@@ -21,13 +21,22 @@ public partial class StartLevelMenuView : View
         _startLevelButton.onClick.AddListener(() => OnButtonClickSignal.Dispatch());
     }
 
-    public void Init(LevelConfig levelConfig, TowersConfig towersConfig)
+    public void Init(LevelConfig levelConfig, GameConfig gameConfig)
     {
+        var towersConfig = gameConfig.GetTowersConfig;
+        var towerViews = gameConfig.GetTowerViews;
+
         foreach (var tower in levelConfig.AvailableTowers)
         {
             var view = GameObject.Instantiate(_towerButtonPrefab, _selectionPanelRoot);
 
-            view.SetData(tower, towersConfig.TowerData[tower], _towerPanelRoot);
+            foreach (var prefab in towerViews)
+                if (prefab.Name == tower)
+                {
+                    view.SetData(tower, towersConfig.TowerData[tower], prefab, _towerPanelRoot);
+                    break;
+                }
+
             view.Init();
         }
     }

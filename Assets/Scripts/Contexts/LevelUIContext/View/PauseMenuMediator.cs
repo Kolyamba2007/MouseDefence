@@ -9,6 +9,7 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
     [Inject] public ClearLevelSignal ClearLevelSignal { get; set; }
     [Inject] public RestartLevelSignal RestartLevelSignal { get; set; }
     [Inject] public SetContextActiveRecursivelySignal SetContextActiveRecursivelySignal { get; set; }
+    [Inject] public PauseMenuCallSignal PauseMenuCallSignal { get; set; }
 
     private void Awake()
     {
@@ -44,7 +45,6 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
     {
         LoadLevelSignal.RemoveAllListeners();
 
-        controls.UI.PauseMenu.started -= (_) => OnMenuCall();
         View.ClickRestartButton.RemoveAllListeners();
         View.MenuCallSignal.RemoveAllListeners();
 
@@ -56,12 +56,14 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
         if(!gameObject.activeSelf)
         {
             gameObject.SetActive(true);
+            PauseMenuCallSignal.Dispatch(true);
             Time.timeScale = 0;
         }
         else
         {
             gameObject.SetActive(false);
             Time.timeScale = 1;
+            PauseMenuCallSignal.Dispatch(false);
         }
     }
 }
