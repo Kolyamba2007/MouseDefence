@@ -12,6 +12,8 @@ public partial class StartLevelMenuView : View
     [SerializeField] private Transform _selectionPanelRoot;
     [SerializeField] private Transform _towerPanelRoot;
 
+    public Button StartButton => _startLevelButton;
+
     public Signal OnButtonClickSignal { get; } = new Signal();
 
     protected override void Start()

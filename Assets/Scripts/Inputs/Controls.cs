@@ -25,6 +25,14 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""CancelTowerSelection"",
+                    ""type"": ""Button"",
+                    ""id"": ""61dade27-81bb-43e0-8b0a-d08975319e6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -38,6 +46,28 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""action"": ""PauseMenu"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3d02c2da-6122-4a24-b643-a662c9da9e94"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelTowerSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""3fbd3efe-dcaa-4ea8-891d-260a9f0e5f2a"",
+                    ""path"": ""<Mouse>/rightButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""CancelTowerSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -47,6 +77,7 @@ public class @Controls : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
+        m_UI_CancelTowerSelection = m_UI.FindAction("CancelTowerSelection", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -97,11 +128,13 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_PauseMenu;
+    private readonly InputAction m_UI_CancelTowerSelection;
     public struct UIActions
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseMenu => m_Wrapper.m_UI_PauseMenu;
+        public InputAction @CancelTowerSelection => m_Wrapper.m_UI_CancelTowerSelection;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -114,6 +147,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
+                @CancelTowerSelection.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
+                @CancelTowerSelection.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
+                @CancelTowerSelection.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -121,6 +157,9 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
+                @CancelTowerSelection.started += instance.OnCancelTowerSelection;
+                @CancelTowerSelection.performed += instance.OnCancelTowerSelection;
+                @CancelTowerSelection.canceled += instance.OnCancelTowerSelection;
             }
         }
     }
@@ -128,5 +167,6 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnPauseMenu(InputAction.CallbackContext context);
+        void OnCancelTowerSelection(InputAction.CallbackContext context);
     }
 }

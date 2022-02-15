@@ -23,6 +23,26 @@ public class LevelContext : MVCSContext
 
     protected override void mapBindings()
     {
+        mediationBinder
+            .Bind<EnemyView>()
+            .To<EnemyMediator>();
+
+        mediationBinder
+            .Bind<AttackTowerView>()
+            .To<AttackTowerMediator>();
+
+        mediationBinder
+            .Bind<CheeseConverterView>()
+            .To<CheeseConverterMediator>();
+
+        mediationBinder
+            .Bind<LineProjectileView>()
+            .To<LineProjectileMediator>();
+
+        mediationBinder
+            .Bind<CheeseView>()
+            .To<CheeseMediator>();
+
         injectionBinder
             .Bind<DestroyTempTowerSignal>()
             .ToSingleton();
@@ -34,18 +54,6 @@ public class LevelContext : MVCSContext
         mediationBinder
             .Bind<SelectedTowerView>()
             .To<SelectedTowerMediator>();
-
-        mediationBinder
-            .Bind<TowerView>()
-            .To<TowerMediator>();
-
-        mediationBinder
-            .Bind<EnemyView>()
-            .To<EnemyMediator>();
-
-        mediationBinder
-            .Bind<ProjectileView>()
-            .To<ProjectileMediator>();
 
         mediationBinder
             .Bind<EnemyWave>()

@@ -38,23 +38,33 @@ MonoBehaviour:
     _keyValues:
     - Laser Turret
     - Catapult
+    - Cheese Converter
     _keys:
     - Laser Turret
     - Catapult
+    - Cheese Converter
     _values:
     - _buttonSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
       _maxHealth: 100
       _damage: 10
       _attackSpeed: 2
       _attackDistance: 10
-      _cost: 50
+      _cost: 100
       _cooldown: 10
-      _projectileView: {fileID: -853157315563300736, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
+      _projectileView: {fileID: 765509448095150814, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
     - _buttonSprite: {fileID: 21300000, guid: cde89bc4303439343b37f582a5cbb22e, type: 3}
       _maxHealth: 100
       _damage: 10
-      _attackSpeed: 3
+      _attackSpeed: 15
       _attackDistance: 10
+      _cost: 125
+      _cooldown: 12
+      _projectileView: {fileID: 765509448095150814, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
+    - _buttonSprite: {fileID: 21300000, guid: 4f51fa0f0b773204090e0759719f5d8a, type: 3}
+      _maxHealth: 100
+      _damage: 50
+      _attackSpeed: 15
+      _attackDistance: 0
       _cost: 50
-      _cooldown: 11
-      _projectileView: {fileID: -853157315563300736, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
+      _cooldown: 5
+      _projectileView: {fileID: -6154375976672527849, guid: 3f30dbb1ffda6c24fa7d67877b54cf6c, type: 3}

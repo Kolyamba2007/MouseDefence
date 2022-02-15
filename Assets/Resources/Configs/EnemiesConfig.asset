@@ -50,19 +50,19 @@ MonoBehaviour:
       _damage: 10
       _attackSpeed: 1
       _attackDistance: 0.6
-      _movementSpeed: 1
+      _movementSpeed: 0.5
     - _maxHealth: 100
       _damage: 10
       _attackSpeed: 1
       _attackDistance: 0.6
-      _movementSpeed: 0.75
+      _movementSpeed: 0.375
     - _maxHealth: 200
       _damage: 100
       _attackSpeed: 0.5
       _attackDistance: 1
-      _movementSpeed: 0.5
+      _movementSpeed: 0.25
     - _maxHealth: 50
       _damage: 12
       _attackSpeed: 1.2
       _attackDistance: 0.6
-      _movementSpeed: 2
+      _movementSpeed: 1

@@ -1,7 +1,7 @@
 using UnityEditor;
 using System.Collections.Generic;
 
-[CustomEditor(typeof(TowerView))]
+[CustomEditor(typeof(TowerView), true)]
 public class TowerViewGUI : Editor
 {
     int _selected;

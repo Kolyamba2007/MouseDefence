@@ -16,6 +16,7 @@ MonoBehaviour:
   _availableTowers:
   - Laser Turret
   - Catapult
+  - Cheese Converter
   _enemiesSpawnData:
   - _enemyID: BaseRat
     _lineNumber: 2

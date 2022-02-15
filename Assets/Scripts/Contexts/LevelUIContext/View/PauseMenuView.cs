@@ -18,8 +18,8 @@ public class PauseMenuView : View
     {
         base.Start();
 
-        _restartButton.onClick.AddListener(() => ClickRestartButton.Dispatch());
-        _mainMenuButton.onClick.AddListener(() => ClickMainMenuButton.Dispatch());
-        _backToGameButton.onClick.AddListener(() => MenuCallSignal.Dispatch());
+        _restartButton.onClick.AddListener(ClickRestartButton.Dispatch);
+        _mainMenuButton.onClick.AddListener(ClickMainMenuButton.Dispatch);
+        _backToGameButton.onClick.AddListener(MenuCallSignal.Dispatch);
     }
 }

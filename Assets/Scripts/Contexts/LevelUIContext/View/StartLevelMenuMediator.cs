@@ -4,6 +4,7 @@ public class StartLevelMenuMediator : ViewMediator<StartLevelMenuView>
 
 	[Inject] public LoadLevelSignal LoadLevelSignal { get; set; }
 	[Inject] public StartLevelSignal StartLevelSignal { get; set; }
+	[Inject] public PauseMenuCallSignal PauseMenuCallSignal { get; set; }
 
 	public override void OnRegister()
 	{
@@ -12,9 +13,11 @@ public class StartLevelMenuMediator : ViewMediator<StartLevelMenuView>
 		StartLevelSignal.AddListener(() => gameObject.SetActive(false));
 		LoadLevelSignal.AddListener((levelConfig) =>
 		{
-			gameObject.SetActive(true);
+			View.StartButton.interactable = true;
 			View.Init(levelConfig, GameConfig);
+			gameObject.SetActive(true);
 		});
+		PauseMenuCallSignal.AddListener((isOpen) => View.StartButton.interactable = !isOpen);
 	}
 
 	public override void OnRemove()
@@ -23,5 +26,6 @@ public class StartLevelMenuMediator : ViewMediator<StartLevelMenuView>
 
 		StartLevelSignal.RemoveAllListeners();
 		LoadLevelSignal.RemoveAllListeners();
+		PauseMenuCallSignal.RemoveAllListeners();
 	}
 }

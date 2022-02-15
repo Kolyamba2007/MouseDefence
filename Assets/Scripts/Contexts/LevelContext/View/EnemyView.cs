@@ -7,7 +7,6 @@ public partial class EnemyView : IdentifiableView
     private RaycastHit2D[] m_Result = new RaycastHit2D[1];
     private LayerMask _mask;
 
-    public int Line { get; private set; }
     public EnemyData EnemyData { get; private set; }
 
     public Signal<Collider2D> DetectSignal { get; } = new Signal<Collider2D>();

@@ -37,6 +37,10 @@ public class MenuContext : MVCSContext
             .Bind<LevelButtonView>()
             .To<LevelButtonMediator>();
 
+        mediationBinder
+            .Bind<MainMenuPanelView>()
+            .To<MainMenuPanelMediator>();
+
         commandBinder
             .Bind<SetContextActiveRecursivelySignal>()
             .To<SetContextActiveRecursivelyCommand>();

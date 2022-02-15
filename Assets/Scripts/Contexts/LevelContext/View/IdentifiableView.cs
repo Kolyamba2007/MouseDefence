@@ -5,9 +5,10 @@ public abstract class IdentifiableView : View
 {
     [HideInInspector, SerializeField] protected string _name;
 
+    public int Line { get; protected set; }
     public ushort ID { get; protected set; }
-
     public string Name => _name;
+
 
     public abstract void Init();
 

@@ -142,5 +142,10 @@ public class MainContext : MVCSContext
            .Bind<TowerCreatedSignal>()
            .ToSingleton()
            .CrossContext();
+
+        injectionBinder
+           .Bind<PauseMenuCallSignal>()
+           .ToSingleton()
+           .CrossContext();
     }
 }
