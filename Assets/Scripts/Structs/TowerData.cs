@@ -12,6 +12,7 @@ public struct TowerData : IUnitData
     [SerializeField] private int _cost;
     [SerializeField] private float _cooldown;
     [SerializeField] private ProjectileView _projectileView;
+    [SerializeField] private float _projectileSpeed;
 
     public Sprite ButtonSprite => _buttonSprite;
     public int MaxHealth => _maxHealth;
@@ -21,4 +22,5 @@ public struct TowerData : IUnitData
     public int Cost => _cost;
     public float Cooldown => _cooldown;
     public ProjectileView ProjectileView => _projectileView;
+    public float ProjectileSpeed => _projectileSpeed;
 }

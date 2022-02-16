@@ -10,7 +10,7 @@ public class AttackTowerView : TowerView
 
     public Vector2 FirePoint => _firePoint.position;
 
-    public Signal<Collider2D> DetectSignal { get; } = new Signal<Collider2D>();
+    public Signal<float> DetectSignal { get; } = new Signal<float>();
 
     protected override void Start()
     {
@@ -29,7 +29,7 @@ public class AttackTowerView : TowerView
 
             if (hit != 0)
             {
-                DetectSignal.Dispatch(m_Result[0].collider);
+                DetectSignal.Dispatch(m_Result[0].distance);
 
                 yield return new WaitForSeconds(TowerData.AttackSpeed);
             }

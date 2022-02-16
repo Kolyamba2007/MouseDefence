@@ -40,6 +40,10 @@ public class LevelContext : MVCSContext
             .To<LineProjectileMediator>();
 
         mediationBinder
+            .Bind<HeavyProjectileView>()
+            .To<HeavyProjectileMediator>();
+
+        mediationBinder
             .Bind<CheeseView>()
             .To<CheeseMediator>();
 

@@ -17,13 +17,13 @@ MonoBehaviour:
   - Laser Turret
   - Catapult
   _enemiesSpawnData:
-  - _enemyID: MuscleRat
-    _lineNumber: 1
-    _breakTime: 0
-  - _enemyID: MuscleRat
+  - _enemyID: BaseRat
+    _lineNumber: 3
+    _breakTime: 0.15
+  - _enemyID: BaseRat
+    _lineNumber: 3
+    _breakTime: 0.15
+  - _enemyID: BaseRat
     _lineNumber: 3
     _breakTime: 0
-  - _enemyID: MuscleRat
-    _lineNumber: 5
-    _breakTime: 0
-  _preparationTime: 5
+  _preparationTime: 3

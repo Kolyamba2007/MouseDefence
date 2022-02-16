@@ -1,10 +1,7 @@
-using strange.extensions.context.api;
-using UnityEngine;
-
 public class CheeseConverterMediator : TowerMediator<CheeseConverterView>
 {
-    [Inject(ContextKeys.CONTEXT_VIEW)] public GameObject ContextView { get; set; }
     [Inject] public FinishLevelSignal FinishLevelSignal { get; set; }
+    [Inject] public FireSignal FireSignal { get; set; }
 
     public override void OnRegister()
     {
@@ -23,9 +20,8 @@ public class CheeseConverterMediator : TowerMediator<CheeseConverterView>
         FinishLevelSignal.RemoveListener(OnFinishLevel);
     }
 
-    private void OnCreateCheese() => 
-        Instantiate(View.TowerData.ProjectileView, View.SpawnPoint, Quaternion.identity, ContextView.transform)
-        .SetData(new ProjectileData(View.Line, View.SpawnPoint, View.TowerData.Damage));
+    private void OnCreateCheese() =>
+        FireSignal.Dispatch(View.TowerData.ProjectileView, new ProjectileData(View.TowerData.Damage, View.SpawnPoint, View.Line));
 
     private void OnFinishLevel(string _) =>
         View.StopProducing();

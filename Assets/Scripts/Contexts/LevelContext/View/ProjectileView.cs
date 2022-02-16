@@ -1,14 +1,11 @@
 using strange.extensions.mediation.impl;
-using UnityEngine;
 
-public class ProjectileView : View
+public abstract class ProjectileView : View
 {
     public ProjectileData ProjectileData { get; private set; }
 
-    public void SetData(ProjectileData projectileData)
-    {
-        ProjectileData = projectileData;
+    public abstract void Init();
 
-        GetComponent<SpriteRenderer>().sortingLayerName = $"Line{ProjectileData.LineNumber}";
-    }
+    public void SetData(ProjectileData projectileData) => 
+        ProjectileData = projectileData;
 }

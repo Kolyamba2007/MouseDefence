@@ -10,8 +10,10 @@ public class FireCommand : Command
 
     public override void Execute()
     {
-        GameObject
-            .Instantiate<ProjectileView>(ProjectileView, ProjectileData.FirePoint, Quaternion.identity, ContextView.transform)
-            .SetData(ProjectileData);
+        var projectile = GameObject
+            .Instantiate<ProjectileView>(ProjectileView, ProjectileData.SpawnPoint, Quaternion.identity, ContextView.transform);
+
+        projectile.SetData(ProjectileData);
+        projectile.Init();
     }
 }

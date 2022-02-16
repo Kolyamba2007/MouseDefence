@@ -18,10 +18,10 @@ public class AttackTowerMediator : TowerMediator<AttackTowerView>
         View.DetectSignal.RemoveListener(OnEnemyDetect);
     }
 
-    public void OnEnemyDetect(Collider2D collider)
+    public void OnEnemyDetect(float distance)
     {
         var td = View.TowerData;
-        var projectileData = new ProjectileData(View.Line, View.FirePoint, td.Damage);
+        var projectileData = new ProjectileData(td.Damage, td.ProjectileSpeed, distance, View.FirePoint, View.Line);
 
         FireSignal.Dispatch(td.ProjectileView, projectileData);
     }
