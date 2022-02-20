@@ -12,12 +12,6 @@ public class CheeseConverterView : TowerView
 
     public Signal ProduceCheeseSignal { get; } = new Signal();
 
-    protected override void Start()
-    {
-        base.Start();
-        _coroutine = StartCoroutine(ProducingCheese());
-    }
-
     private IEnumerator ProducingCheese()
     {
         yield return new WaitForSeconds(TowerData.AttackSpeed);
@@ -27,6 +21,11 @@ public class CheeseConverterView : TowerView
 
             yield return new WaitForSeconds(TowerData.AttackSpeed);
         }
+    }
+
+    public void StartProducing()
+    {
+        _coroutine = StartCoroutine(ProducingCheese());
     }
 
     public void StopProducing()

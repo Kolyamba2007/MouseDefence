@@ -1,6 +1,5 @@
 using Enums;
 using System;
-using UnityEngine;
 
 public class CheeseService : ICheeseService
 {

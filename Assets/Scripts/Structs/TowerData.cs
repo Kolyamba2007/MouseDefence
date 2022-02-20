@@ -11,6 +11,7 @@ public struct TowerData : IUnitData
     [SerializeField] private float _attackDistance;
     [SerializeField] private int _cost;
     [SerializeField] private float _cooldown;
+    [SerializeField] private int _powerUsage;
     [SerializeField] private ProjectileView _projectileView;
     [SerializeField] private float _projectileSpeed;
 
@@ -21,6 +22,7 @@ public struct TowerData : IUnitData
     public float AttackDistance => _attackDistance;
     public int Cost => _cost;
     public float Cooldown => _cooldown;
+    public int PowerUsage => _powerUsage;
     public ProjectileView ProjectileView => _projectileView;
     public float ProjectileSpeed => _projectileSpeed;
 }

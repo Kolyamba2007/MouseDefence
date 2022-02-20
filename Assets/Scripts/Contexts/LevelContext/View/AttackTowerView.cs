@@ -6,18 +6,13 @@ public class AttackTowerView : TowerView
 {
     [SerializeField] private Transform _firePoint;
 
+    private Coroutine _coroutine;
+
     private RaycastHit2D[] m_Result = new RaycastHit2D[1];
 
     public Vector2 FirePoint => _firePoint.position;
 
     public Signal<float> DetectSignal { get; } = new Signal<float>();
-
-    protected override void Start()
-    {
-        base.Start();
-
-        StartCoroutine(EnemyDetect());
-    }
 
     private IEnumerator EnemyDetect()
     {
@@ -36,5 +31,16 @@ public class AttackTowerView : TowerView
 
             yield return new WaitForFixedUpdate();
         }
+    }
+
+    public void StartDetecting()
+    {
+        _coroutine = StartCoroutine(EnemyDetect());
+    }
+
+    public void StopDetecting()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
     }
 }

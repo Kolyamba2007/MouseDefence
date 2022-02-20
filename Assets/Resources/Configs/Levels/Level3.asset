@@ -15,7 +15,8 @@ MonoBehaviour:
   _unlock: 0
   _cheeseCount: 500
   _availableTowers:
-  - Laser Turret
+  - Cheese Converter
+  - Generator
   - Catapult
   _enemiesSpawnData:
   - _enemyID: BaseRat

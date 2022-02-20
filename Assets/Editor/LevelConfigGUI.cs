@@ -7,7 +7,6 @@ public class LevelConfigGUI : Editor
 {
     private LevelConfig _levelConfig;
 
-    SerializedProperty _unlock;
     SerializedProperty _cheeseCount;
     SerializedProperty _preparationTime;
 
@@ -28,7 +27,6 @@ public class LevelConfigGUI : Editor
         _levelConfig = (LevelConfig)target;
         var gameConfig = GameConfig.Load();
 
-        _unlock = serializedObject.FindProperty("_unlock");
         _cheeseCount = serializedObject.FindProperty("_cheeseCount");
         _preparationTime = serializedObject.FindProperty("_preparationTime");
 
@@ -72,7 +70,6 @@ public class LevelConfigGUI : Editor
 
         GUILayout.Label("Settings", GUILayout.Height(20));
         GUILayout.BeginVertical("box");
-            _unlock.boolValue = EditorGUILayout.Toggle("Unlock:", _unlock.boolValue);
             _cheeseCount.intValue = EditorGUILayout.IntField("Cheese Count:", _cheeseCount.intValue);
         GUILayout.EndVertical();
 

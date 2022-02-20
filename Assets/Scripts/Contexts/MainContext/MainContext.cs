@@ -84,6 +84,12 @@ public class MainContext : MVCSContext
             .To<LevelState>()
             .ToSingleton()
             .CrossContext();
+
+        injectionBinder
+            .Bind<IPowerState>()
+            .To<PowerState>()
+            .ToSingleton()
+            .CrossContext();
     }
 
     private void BindServices()
@@ -103,6 +109,12 @@ public class MainContext : MVCSContext
         injectionBinder
             .Bind<ILevelService>()
             .To<LevelService>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
+            .Bind<IPowerService>()
+            .To<PowerService>()
             .ToSingleton()
             .CrossContext();
     }
@@ -171,6 +183,21 @@ public class MainContext : MVCSContext
 
         injectionBinder
             .Bind<SaveToFileSignal>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
+            .Bind<SetPowerActiveSignal>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
+            .Bind<UpdatePowerCountSignal>()
+            .ToSingleton()
+            .CrossContext();
+
+        injectionBinder
+            .Bind<RemoveModeSignal>()
             .ToSingleton()
             .CrossContext();
     }

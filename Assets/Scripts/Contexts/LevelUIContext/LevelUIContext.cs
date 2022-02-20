@@ -35,6 +35,10 @@ public class LevelUIContext : MVCSContext
             .To<TowerButtonMediator>();
 
         mediationBinder
+            .Bind<RemovingToolView>()
+            .To<RemovingToolMediator>();
+
+        mediationBinder
             .Bind<StartLevelMenuView>()
             .To<StartLevelMenuMediator>();
 
@@ -49,6 +53,10 @@ public class LevelUIContext : MVCSContext
         mediationBinder
             .Bind<CheeseCountView>()
             .To<CheeseCountMediator>();
+
+        mediationBinder
+            .Bind<PowerCountView>()
+            .To<PowerCountMediator>();
 
         commandBinder
             .Bind<SetContextActiveRecursivelySignal>()
