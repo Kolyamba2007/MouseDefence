@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class HeavyProjectileMediator : ProjectileMediator<HeavyProjectileView>
@@ -8,7 +7,7 @@ public class HeavyProjectileMediator : ProjectileMediator<HeavyProjectileView>
         base.OnRegister();
 
         ClearLevelSignal.AddListener(View.StopMove);
-        View.DetectEnemiesSignal.AddListener(OnEnemyDetect);
+        View.CollisionSignal.AddListener(OnCollision);
     }
 
     public override void OnRemove()
@@ -17,10 +16,10 @@ public class HeavyProjectileMediator : ProjectileMediator<HeavyProjectileView>
 
         View.StopMove();
         ClearLevelSignal.RemoveListener(View.StopMove);
-        View.DetectEnemiesSignal.RemoveListener(OnEnemyDetect);
+        View.CollisionSignal.RemoveListener(OnCollision);
     }
 
-    public void OnEnemyDetect(Collider2D[] enemies)
+    public void OnCollision(Collider2D[] enemies)
     {
         for (int i = 0; i < enemies.Length; i++)
         {

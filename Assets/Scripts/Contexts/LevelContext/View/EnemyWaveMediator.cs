@@ -33,7 +33,7 @@ public class EnemyWaveMediator : ViewMediator<EnemyWave>
 		if (UnitService.Count<EnemyView>() == 0)
 		{
 			View.StopManufacture();
-			FinishLevelSignal.Dispatch("Win");
+			FinishLevelSignal.Dispatch(Enums.Result.Win);
 		}
 	}
 }

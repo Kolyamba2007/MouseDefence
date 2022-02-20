@@ -4,10 +4,11 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
 {
     private Controls controls;
 
+    [Inject] public ILevelService LevelService { get; set; }
+
     [Inject] public LoadLevelSignal LoadLevelSignal { get; set; }
     [Inject] public FinishLevelSignal FinishLevelSignal { get; set; }
     [Inject] public ClearLevelSignal ClearLevelSignal { get; set; }
-    [Inject] public RestartLevelSignal RestartLevelSignal { get; set; }
     [Inject] public SetContextActiveRecursivelySignal SetContextActiveRecursivelySignal { get; set; }
     [Inject] public PauseMenuCallSignal PauseMenuCallSignal { get; set; }
 
@@ -26,7 +27,7 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
         {
             OnMenuCall();
             ClearLevelSignal.Dispatch();
-            RestartLevelSignal.Dispatch();
+            LevelService.RestartLevel();
         });
         View.ClickMainMenuButton.AddListener(() =>
         {
@@ -34,7 +35,6 @@ public class PauseMenuMediator : ViewMediator<PauseMenuView>
 
             OnMenuCall();
             ClearLevelSignal.Dispatch();
-            //RestartLevelSignal.RemoveAllListeners();
             SetContextActiveRecursivelySignal.Dispatch();
         });
         View.MenuCallSignal.AddListener(OnMenuCall);

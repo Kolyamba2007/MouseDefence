@@ -20,5 +20,7 @@ public class LineProjectileMediator : ProjectileMediator<LineProjectileView>
     {
         if (collision.gameObject.TryGetComponent(out IdentifiableView targetView))
             UnitService.SetDamage(targetView, View.ProjectileData.Damage);
+
+        Destroy(gameObject);
     }
 }

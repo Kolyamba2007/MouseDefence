@@ -1,7 +1,5 @@
 using strange.extensions.mediation.impl;
-using strange.extensions.signal.impl;
 using UnityEngine;
-using UnityEngine.UI;
 
 public partial class LevelButtonPanelView : View
 {
@@ -10,9 +8,20 @@ public partial class LevelButtonPanelView : View
 
     public void Init(LevelConfig[] configs)
     {
-        foreach (var config in configs)
+        var length = configs.Length;
+
+        if (length != 0)
         {
-            Instantiate(_levelButtonPrefab, _levelButtonsRoot).SetData(config);
+            for (int i = 0; i < length - 1; i++)
+            {
+                var button = Instantiate(_levelButtonPrefab, _levelButtonsRoot);
+
+                button.SetData(configs[i], configs[i + 1]);
+            }
+
+            var lastButton = Instantiate(_levelButtonPrefab, _levelButtonsRoot);
+
+            lastButton.SetData(configs[length - 1], configs[0]);
         }
 
         gameObject.SetActive(false);

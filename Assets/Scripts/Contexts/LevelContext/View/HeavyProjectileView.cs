@@ -11,7 +11,7 @@ public class HeavyProjectileView : ProjectileView
 
     private List<Collider2D> _enemies = new List<Collider2D>();
 
-    public Signal<Collider2D[]> DetectEnemiesSignal { get; } = new Signal<Collider2D[]>();
+    public Signal<Collider2D[]> CollisionSignal { get; } = new Signal<Collider2D[]>();
 
     public override void Init()
     {
@@ -37,16 +37,19 @@ public class HeavyProjectileView : ProjectileView
             yield return null;
         }
 
-        DetectEnemiesSignal.Dispatch(_enemies.ToArray());
+        CollisionSignal.Dispatch(_enemies.ToArray());
     }
 
-    public void StopMove() => 
-        StopCoroutine(_coroutine);
+    public void StopMove()
+    {
+        if (_coroutine != null)
+            StopCoroutine(_coroutine);
+    } 
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == _layerMask)
-            DetectEnemiesSignal.Dispatch(_enemies.ToArray());
+            CollisionSignal.Dispatch(_enemies.ToArray());
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

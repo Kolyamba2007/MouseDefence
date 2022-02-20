@@ -1,32 +1,38 @@
-using UnityEngine;
-
 public class ResultMenuMediator : ViewMediator<ResultMenuView>
 {
+    [Inject] public ILevelService LevelService { get; set; }
+
     [Inject] public FinishLevelSignal FinishLevelSignal { get; set; }
     [Inject] public ClearLevelSignal ClearLevelSignal { get; set; }
-    [Inject] public RestartLevelSignal RestartLevelSignal { get; set; }
     [Inject] public SetContextActiveRecursivelySignal SetContextActiveRecursivelySignal { get; set; }
 
     public override void OnRegister()
     {
-        FinishLevelSignal.AddListener((result) => View.Init(result));
+        FinishLevelSignal.AddListener((result) =>
+        {
+            View.Init(result.ToString());
+
+            if (result == Enums.Result.Win)
+                LevelService.UnlockNextLevel();
+        });
 
         View.ClickMainMenuButton.AddListener(() =>
         {
             gameObject.SetActive(false);
             ClearLevelSignal.Dispatch();
-            //RestartLevelSignal.RemoveAllListeners();
             SetContextActiveRecursivelySignal.Dispatch();
         });
         View.ClickRestartButton.AddListener(() =>
         {
             gameObject.SetActive(false);
             ClearLevelSignal.Dispatch();
-            RestartLevelSignal.Dispatch();
+            LevelService.RestartLevel();
         });
         View.ClickNextLevelButton.AddListener(() =>
         {
-            Debug.Log("NextLevel");
+            gameObject.SetActive(false);
+            ClearLevelSignal.Dispatch();
+            LevelService.LoadNextLevel();
         });
         gameObject.SetActive(false);
     }

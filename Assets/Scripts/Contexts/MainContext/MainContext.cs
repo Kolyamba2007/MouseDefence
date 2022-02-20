@@ -32,17 +32,41 @@ public class MainContext : MVCSContext
     override public IContext Start()
     {
         base.Start();
-        
+
         injectionBinder.GetInstance<LoadSceneSignal>().Dispatch(gameSceneName);
+        injectionBinder.GetInstance<LoadFromFileSignal>().Dispatch();
         return this;
     }
 
     protected override void mapBindings()
     {
-        BindSignals();
+        BindCommonSignals();
+
+        BindModels();
 
         BindServices();
 
+        injectionBinder
+            .Bind<GameConfig>()
+            .To(GameConfig.Load())
+            .ToSingleton()
+            .CrossContext();
+
+        commandBinder
+            .Bind<LoadFromFileSignal>()
+            .To<LoadFromFileCommand>();
+
+        commandBinder
+            .Bind<SaveToFileSignal>()
+            .To<SaveToFileCommand>();
+
+        commandBinder
+            .Bind<LoadSceneSignal>()
+            .To<LoadSceneCommand>();
+    }
+
+    private void BindModels()
+    {
         injectionBinder
             .Bind<IUnitState>()
             .To<UnitState>()
@@ -56,14 +80,10 @@ public class MainContext : MVCSContext
             .CrossContext();
 
         injectionBinder
-            .Bind<GameConfig>()
-            .To(GameConfig.Load())
+            .Bind<ILevelState>()
+            .To<LevelState>()
             .ToSingleton()
             .CrossContext();
-
-        commandBinder
-            .Bind<LoadSceneSignal>()
-            .To<LoadSceneCommand>();
     }
 
     private void BindServices()
@@ -79,9 +99,15 @@ public class MainContext : MVCSContext
             .To<CheeseService>()
             .ToSingleton()
             .CrossContext();
+
+        injectionBinder
+            .Bind<ILevelService>()
+            .To<LevelService>()
+            .ToSingleton()
+            .CrossContext();
     }
 
-    private void BindSignals()
+    private void BindCommonSignals()
     {
         injectionBinder
             .Bind<LoadLevelSignal>()
@@ -119,11 +145,6 @@ public class MainContext : MVCSContext
            .CrossContext();
 
         injectionBinder
-           .Bind<RestartLevelSignal>()
-           .ToSingleton()
-           .CrossContext();
-
-        injectionBinder
            .Bind<SetContextActiveRecursivelySignal>()
            .ToSingleton()
            .CrossContext();
@@ -147,5 +168,10 @@ public class MainContext : MVCSContext
            .Bind<PauseMenuCallSignal>()
            .ToSingleton()
            .CrossContext();
+
+        injectionBinder
+            .Bind<SaveToFileSignal>()
+            .ToSingleton()
+            .CrossContext();
     }
 }

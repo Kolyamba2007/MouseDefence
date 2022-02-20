@@ -7,7 +7,8 @@ public partial class LevelButtonView : View
 {
     [SerializeField] private Button _button;
 
-    public LevelConfig _config { get; private set; }
+    public LevelConfig LevelConfig { get; private set; }
+
     public Signal ButtonClickedSignal { get; } = new Signal();
 
     private void OnValidate()
@@ -15,15 +16,19 @@ public partial class LevelButtonView : View
         _button = GetComponent<Button>();
     }
 
-    public void SetData(LevelConfig config)
-    {
-        _config = config;
-    }
-
     protected override void Start()
     {
         base.Start();
 
         _button.onClick.AddListener(() => ButtonClickedSignal.Dispatch());
+    }
+
+    public void Init(bool isUnlocked) =>
+        _button.interactable = isUnlocked;
+
+    public void SetData(LevelConfig levelConfig, LevelConfig nextLevel)
+    {
+        LevelConfig = levelConfig;
+        LevelConfig.NextLevel = nextLevel;
     }
 }

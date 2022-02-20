@@ -73,7 +73,7 @@ public class TowerButtonMediator : ViewMediator<TowerButtonView>
 			View.Button.interactable = true;
 	}
 
-	private void OnLevelFinish(string _) => View.Image.raycastTarget = false;
+	private void OnLevelFinish(Enums.Result _) => View.Image.raycastTarget = false;
 
 	private void OnPauseCall(bool isOpen) => View.Image.raycastTarget = !isOpen;
 }

@@ -10,6 +10,8 @@ public class GameConfig : ScriptableObject
     [SerializeField] private string _enemyViewsSourcePath;
     [SerializeField] private ScriptableObject _settingsConfig;
 
+    [SerializeField] private string _savePath;
+
     /// <summary>
     /// Return config of towers
     /// </summary>
@@ -39,6 +41,8 @@ public class GameConfig : ScriptableObject
     /// Return config of settings
     /// </summary>
     public ScriptableObject GetSettingsConfig => _settingsConfig;
+
+    public string SavePath => Application.dataPath + "/" + _savePath;
 
     public static GameConfig Load()
     {

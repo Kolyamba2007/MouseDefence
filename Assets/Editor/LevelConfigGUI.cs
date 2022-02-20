@@ -7,6 +7,7 @@ public class LevelConfigGUI : Editor
 {
     private LevelConfig _levelConfig;
 
+    SerializedProperty _unlock;
     SerializedProperty _cheeseCount;
     SerializedProperty _preparationTime;
 
@@ -27,6 +28,7 @@ public class LevelConfigGUI : Editor
         _levelConfig = (LevelConfig)target;
         var gameConfig = GameConfig.Load();
 
+        _unlock = serializedObject.FindProperty("_unlock");
         _cheeseCount = serializedObject.FindProperty("_cheeseCount");
         _preparationTime = serializedObject.FindProperty("_preparationTime");
 
@@ -68,16 +70,17 @@ public class LevelConfigGUI : Editor
     {
         serializedObject.Update();
 
-        GUILayout.Label("Cheese Count", GUILayout.Height(20));
-        _cheeseCount.intValue = EditorGUILayout.IntField(_cheeseCount.intValue);
+        GUILayout.Label("Settings", GUILayout.Height(20));
+        GUILayout.BeginVertical("box");
+            _unlock.boolValue = EditorGUILayout.Toggle("Unlock:", _unlock.boolValue);
+            _cheeseCount.intValue = EditorGUILayout.IntField("Cheese Count:", _cheeseCount.intValue);
+        GUILayout.EndVertical();
+
         if (_cheeseCount.intValue < 0) _cheeseCount.intValue = 0;
 
         GUILayout.Label("Available Towers", GUILayout.Height(20));
         GUILayout.BeginVertical("box");
-            GUILayout.BeginHorizontal();
-                GUILayout.Label("Count:");
-                _towerCount = EditorGUILayout.IntField(_towerCount);
-            GUILayout.EndHorizontal();
+            _towerCount = EditorGUILayout.IntField("Count:", _towerCount);
 
             GUILayout.Space(5f);
             GUILayout.Label("ID");
@@ -97,10 +100,8 @@ public class LevelConfigGUI : Editor
         GUILayout.Label("Enemy Spawn Event", GUILayout.Height(20));
         GUILayout.BeginVertical("box");
             GUILayout.BeginHorizontal();
-                GUILayout.Label("Count:");
-                _enemyCount = EditorGUILayout.IntField(_enemyCount);
-                GUILayout.Label("Preparation Time:");
-                _preparationTime.floatValue = EditorGUILayout.FloatField(_preparationTime.floatValue);
+                _enemyCount = EditorGUILayout.IntField("Count:", _enemyCount);
+                _preparationTime.floatValue = EditorGUILayout.FloatField("Preparation Time:", _preparationTime.floatValue);
             GUILayout.EndHorizontal();
 
             GUILayout.Space(5f);

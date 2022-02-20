@@ -37,6 +37,6 @@ public class CheeseMediator : ProjectileMediator<CheeseView>
             View.ClickSignal.AddListener(OnClick);
     }
 
-    private void OnFinishLevel(string _) =>
+    private void OnFinishLevel(Enums.Result _) =>
         View.ClickSignal.RemoveListener(OnClick);
 }

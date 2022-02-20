@@ -23,6 +23,6 @@ public class CheeseConverterMediator : TowerMediator<CheeseConverterView>
     private void OnCreateCheese() =>
         FireSignal.Dispatch(View.TowerData.ProjectileView, new ProjectileData(View.TowerData.Damage, View.SpawnPoint, View.Line));
 
-    private void OnFinishLevel(string _) =>
+    private void OnFinishLevel(Enums.Result _) =>
         View.StopProducing();
 }

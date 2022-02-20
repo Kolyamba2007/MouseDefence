@@ -1,3 +1,3 @@
 using strange.extensions.signal.impl;
 
-public class FinishLevelSignal : Signal<string> { }
+public class FinishLevelSignal : Signal<Enums.Result> { }

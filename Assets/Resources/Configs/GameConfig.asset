@@ -18,3 +18,4 @@ MonoBehaviour:
   _towerViewsSourcePath: Prefabs/Level/Towers
   _enemyViewsSourcePath: Prefabs/Level/Enemies
   _settingsConfig: {fileID: 0}
+  _savePath: save.json

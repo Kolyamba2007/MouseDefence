@@ -7,7 +7,7 @@ public class LosingTriggerMediator : ViewMediator<LosingTrigger>
     {
         LoadLevelSignal.AddListener((_) =>
             View.FinishGameSignal.AddOnce(() =>
-                FinishLevelSignal.Dispatch("Loss")));
+                FinishLevelSignal.Dispatch(Enums.Result.Loss)));
     }
 
     public override void OnRemove()

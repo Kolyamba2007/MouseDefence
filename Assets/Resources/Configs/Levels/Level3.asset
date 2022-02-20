@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d1dc2c033d92f41bd89d7bd843c4c9, type: 3}
   m_Name: Level3
   m_EditorClassIdentifier: 
+  _unlock: 0
   _cheeseCount: 500
   _availableTowers:
   - Laser Turret

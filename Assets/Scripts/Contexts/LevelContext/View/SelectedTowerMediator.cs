@@ -43,6 +43,6 @@ public class SelectedTowerMediator : ViewMediator<SelectedTowerView>
         DestroyTempTowerSignal.Dispatch();
     }
 
-    private void OnFinishLevel(string isOpen) =>
+    private void OnFinishLevel(Enums.Result _) =>
         DestroyTempTowerSignal.Dispatch();
 }
