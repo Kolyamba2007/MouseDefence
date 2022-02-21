@@ -195,10 +195,5 @@ public class MainContext : MVCSContext
             .Bind<UpdatePowerCountSignal>()
             .ToSingleton()
             .CrossContext();
-
-        injectionBinder
-            .Bind<RemoveModeSignal>()
-            .ToSingleton()
-            .CrossContext();
     }
 }

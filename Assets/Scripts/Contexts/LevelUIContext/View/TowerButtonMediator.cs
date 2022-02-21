@@ -1,5 +1,10 @@
+using strange.extensions.context.api;
+using UnityEngine;
+
 public class TowerButtonMediator : ViewMediator<TowerButtonView>
 {
+	[Inject(ContextKeys.CONTEXT_VIEW)] public GameObject ContextView { get; set; }
+
 	[Inject] public ICheeseService CheeseService { get; set; }
 
 	[Inject] public StartLevelSignal StartLevelSignal { get; set; }
@@ -45,7 +50,7 @@ public class TowerButtonMediator : ViewMediator<TowerButtonView>
 
 		View.ButtonClickedSignal.RemoveListener(View.ChangeRootTable);
 		UpdateCheeseCountSignal.AddListener(OnCheeseCountUpdate);
-		View.ButtonClickedSignal.AddListener(() => ChooseTowerSignal.Dispatch(View.TowerPrefab, View.TowerData));
+		View.ButtonClickedSignal.AddListener(OnClick);
 	}
 
 	private void OnCheeseCountUpdate(int count)
@@ -76,4 +81,12 @@ public class TowerButtonMediator : ViewMediator<TowerButtonView>
 	private void OnLevelFinish(Enums.Result _) => View.Image.raycastTarget = false;
 
 	private void OnPauseCall(bool isOpen) => View.Image.raycastTarget = !isOpen;
+
+	private void OnClick()
+    {
+		var tool = Instantiate(View.ToolPrefab, ContextView.transform);
+
+		tool.SetData(View.TowerData, View.TowerPrefab);
+		tool.Init();
+	}
 }

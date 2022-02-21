@@ -1,10 +1,9 @@
 fileFormatVersion: 2
-guid: c0c97ee2a267f1c4193224520f8121b8
+guid: f4f09013d45f99442b4abbb191c13379
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences:
-  - towerSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
+  defaultReferences: []
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

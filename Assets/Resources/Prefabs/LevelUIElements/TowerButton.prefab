@@ -342,6 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d79432148a144644b8dd7c67f4f1f8ea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _toolPrefab: {fileID: 8738797205192195996, guid: 30363b77584552548bbe79266a20e216, type: 3}
   _buttonImage: {fileID: 2868911255681256493}
   _costText: {fileID: 2542576850541604048}
   _nameText: {fileID: 2868911254874204943}

@@ -6,6 +6,8 @@ using UnityEngine.UI;
 
 public partial class TowerButtonView : View
 {
+    [SerializeField] private TowerToolView _toolPrefab;
+
     [SerializeField] private Image _buttonImage;
     [SerializeField] private Text _costText;
     [SerializeField] private Text _nameText;
@@ -17,8 +19,10 @@ public partial class TowerButtonView : View
     private Transform _selectionPanelRoot;
     private Transform _towerPanelRoot;
 
+    public TowerToolView ToolPrefab => _toolPrefab;
     public Image Image => _buttonImage;
     public Button Button => _button;
+
     public TowerData TowerData { get; private set; }
     public TowerView TowerPrefab { get; private set; }
     public string id { get; private set; }

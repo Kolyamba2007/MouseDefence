@@ -51,17 +51,9 @@ public class LevelContext : MVCSContext
             .Bind<CheeseView>()
             .To<CheeseMediator>();
 
-        injectionBinder
-            .Bind<DestroyTempTowerSignal>()
-            .ToSingleton();
-
         mediationBinder
             .Bind<CellView>()
             .To<CellMediator>();
-
-        mediationBinder
-            .Bind<SelectedTowerView>()
-            .To<SelectedTowerMediator>();
 
         mediationBinder
             .Bind<EnemyWave>()
@@ -70,10 +62,6 @@ public class LevelContext : MVCSContext
         mediationBinder
             .Bind<LosingTrigger>()
             .To<LosingTriggerMediator>();
-
-        commandBinder
-            .Bind<ChooseTowerSignal>()
-            .To<ChooseTowerCommand>();
 
         commandBinder
             .Bind<FireSignal>()

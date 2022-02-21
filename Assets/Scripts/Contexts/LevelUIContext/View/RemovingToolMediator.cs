@@ -1,14 +1,18 @@
-public class RemovingToolMediator : ViewMediator<RemovingToolView>
+public class RemovingToolMediator : ToolMediator<RemovingToolView>
 {
-    [Inject] public RemoveModeSignal RemoveModeSignal { get; set; }
+    [Inject] public IUnitService UnitService { get; set; }
 
     public override void OnRegister()
     {
-        View.ButtonClickedSignal.AddListener(() => RemoveModeSignal.Dispatch());
+        base.OnRegister();
+
+        View.RemoveTowerSignal.AddListener(UnitService.Remove);
     }
 
     public override void OnRemove()
     {
-        View.ButtonClickedSignal.RemoveAllListeners();
+        base.OnRemove();
+
+        View.RemoveTowerSignal.RemoveAllListeners();
     }
 }

@@ -4902,6 +4902,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: RemovingToolButton
       objectReference: {fileID: 0}
+    - target: {fileID: 4745846858462184348, guid: ed1e050e3a86b824ebc13cae3ca3a53e, type: 3}
+      propertyPath: _prefab
+      value: 
+      objectReference: {fileID: 6194014040142125664, guid: e6daf2cf607c2234991167a2c45cd581, type: 3}
     - target: {fileID: 4745846858462184349, guid: ed1e050e3a86b824ebc13cae3ca3a53e, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

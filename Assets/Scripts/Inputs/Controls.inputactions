@@ -14,9 +14,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "CancelTowerSelection",
+                    "name": "CancelSelection",
                     "type": "Button",
                     "id": "61dade27-81bb-43e0-8b0a-d08975319e6f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "LMB",
+                    "type": "Button",
+                    "id": "cac99830-37eb-485a-9e23-0b437c54de8f",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -41,7 +49,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CancelTowerSelection",
+                    "action": "CancelSelection",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -52,7 +60,18 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CancelTowerSelection",
+                    "action": "CancelSelection",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03ca25ab-327f-4487-954b-ff00f2366a64",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LMB",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

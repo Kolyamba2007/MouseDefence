@@ -27,9 +27,17 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""CancelTowerSelection"",
+                    ""name"": ""CancelSelection"",
                     ""type"": ""Button"",
                     ""id"": ""61dade27-81bb-43e0-8b0a-d08975319e6f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""LMB"",
+                    ""type"": ""Button"",
+                    ""id"": ""cac99830-37eb-485a-9e23-0b437c54de8f"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -54,7 +62,7 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CancelTowerSelection"",
+                    ""action"": ""CancelSelection"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -65,7 +73,18 @@ public class @Controls : IInputActionCollection, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CancelTowerSelection"",
+                    ""action"": ""CancelSelection"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03ca25ab-327f-4487-954b-ff00f2366a64"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LMB"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -77,7 +96,8 @@ public class @Controls : IInputActionCollection, IDisposable
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_PauseMenu = m_UI.FindAction("PauseMenu", throwIfNotFound: true);
-        m_UI_CancelTowerSelection = m_UI.FindAction("CancelTowerSelection", throwIfNotFound: true);
+        m_UI_CancelSelection = m_UI.FindAction("CancelSelection", throwIfNotFound: true);
+        m_UI_LMB = m_UI.FindAction("LMB", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -128,13 +148,15 @@ public class @Controls : IInputActionCollection, IDisposable
     private readonly InputActionMap m_UI;
     private IUIActions m_UIActionsCallbackInterface;
     private readonly InputAction m_UI_PauseMenu;
-    private readonly InputAction m_UI_CancelTowerSelection;
+    private readonly InputAction m_UI_CancelSelection;
+    private readonly InputAction m_UI_LMB;
     public struct UIActions
     {
         private @Controls m_Wrapper;
         public UIActions(@Controls wrapper) { m_Wrapper = wrapper; }
         public InputAction @PauseMenu => m_Wrapper.m_UI_PauseMenu;
-        public InputAction @CancelTowerSelection => m_Wrapper.m_UI_CancelTowerSelection;
+        public InputAction @CancelSelection => m_Wrapper.m_UI_CancelSelection;
+        public InputAction @LMB => m_Wrapper.m_UI_LMB;
         public InputActionMap Get() { return m_Wrapper.m_UI; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -147,9 +169,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PauseMenu.started -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
                 @PauseMenu.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnPauseMenu;
-                @CancelTowerSelection.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
-                @CancelTowerSelection.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
-                @CancelTowerSelection.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelTowerSelection;
+                @CancelSelection.started -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelSelection;
+                @CancelSelection.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelSelection;
+                @CancelSelection.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnCancelSelection;
+                @LMB.started -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
+                @LMB.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
+                @LMB.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnLMB;
             }
             m_Wrapper.m_UIActionsCallbackInterface = instance;
             if (instance != null)
@@ -157,9 +182,12 @@ public class @Controls : IInputActionCollection, IDisposable
                 @PauseMenu.started += instance.OnPauseMenu;
                 @PauseMenu.performed += instance.OnPauseMenu;
                 @PauseMenu.canceled += instance.OnPauseMenu;
-                @CancelTowerSelection.started += instance.OnCancelTowerSelection;
-                @CancelTowerSelection.performed += instance.OnCancelTowerSelection;
-                @CancelTowerSelection.canceled += instance.OnCancelTowerSelection;
+                @CancelSelection.started += instance.OnCancelSelection;
+                @CancelSelection.performed += instance.OnCancelSelection;
+                @CancelSelection.canceled += instance.OnCancelSelection;
+                @LMB.started += instance.OnLMB;
+                @LMB.performed += instance.OnLMB;
+                @LMB.canceled += instance.OnLMB;
             }
         }
     }
@@ -167,6 +195,7 @@ public class @Controls : IInputActionCollection, IDisposable
     public interface IUIActions
     {
         void OnPauseMenu(InputAction.CallbackContext context);
-        void OnCancelTowerSelection(InputAction.CallbackContext context);
+        void OnCancelSelection(InputAction.CallbackContext context);
+        void OnLMB(InputAction.CallbackContext context);
     }
 }

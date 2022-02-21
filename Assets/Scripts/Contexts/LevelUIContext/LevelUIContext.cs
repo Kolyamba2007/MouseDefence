@@ -35,10 +35,6 @@ public class LevelUIContext : MVCSContext
             .To<TowerButtonMediator>();
 
         mediationBinder
-            .Bind<RemovingToolView>()
-            .To<RemovingToolMediator>();
-
-        mediationBinder
             .Bind<StartLevelMenuView>()
             .To<StartLevelMenuMediator>();
 
@@ -61,5 +57,21 @@ public class LevelUIContext : MVCSContext
         commandBinder
             .Bind<SetContextActiveRecursivelySignal>()
             .To<SetContextActiveRecursivelyCommand>();
+
+        mediationBinder
+            .Bind<RemovingToolButtonView>()
+            .To<RemovingToolButtonMediator>();
+
+        injectionBinder
+            .Bind<DestroyToolSignal>()
+            .ToSingleton();
+
+        mediationBinder
+            .Bind<TowerToolView>()
+            .To<TowerToolMediator>();
+
+        mediationBinder
+            .Bind<RemovingToolView>()
+            .To<RemovingToolMediator>();
     }
 }
