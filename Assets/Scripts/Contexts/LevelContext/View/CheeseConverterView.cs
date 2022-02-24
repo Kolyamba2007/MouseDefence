@@ -14,12 +14,12 @@ public class CheeseConverterView : TowerView
 
     private IEnumerator ProducingCheese()
     {
-        yield return new WaitForSeconds(TowerData.AttackSpeed);
+        yield return new WaitForSeconds(TowerData.AbilityCooldown);
         while (true)
         {
             ProduceCheeseSignal.Dispatch();
 
-            yield return new WaitForSeconds(TowerData.AttackSpeed);
+            yield return new WaitForSeconds(TowerData.AbilityCooldown);
         }
     }
 

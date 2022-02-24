@@ -26,6 +26,7 @@ public class ToolView : View
 
         var cursorPos = Mouse.current.position.ReadValue();
         transform.position = new Vector2(cursorPos.x, cursorPos.y);
+        Cursor.visible = false;
     }
 
     protected override void OnDisable()
@@ -34,6 +35,8 @@ public class ToolView : View
 
         controls.UI.CancelSelection.started -= RemoveTool;
         controls.Disable();
+
+        Cursor.visible = true;
     }
 
     private void RemoveTool(CallbackContext context) =>

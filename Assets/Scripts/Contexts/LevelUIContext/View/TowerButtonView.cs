@@ -75,7 +75,7 @@ public partial class TowerButtonView : View
     }
 
     public void StartCooldown() => 
-        _coroutine = StartCoroutine(Cooldown(TowerData.Cooldown));
+        _coroutine = StartCoroutine(Cooldown(TowerData.Reload));
 
     public void StopCooldown()
     {

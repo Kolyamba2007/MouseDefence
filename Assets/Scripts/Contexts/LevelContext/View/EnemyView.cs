@@ -1,9 +1,13 @@
 using strange.extensions.signal.impl;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public partial class EnemyView : IdentifiableView
 {
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _attackAnimName;
+
     private RaycastHit2D[] m_Result = new RaycastHit2D[1];
     private LayerMask _mask;
 
@@ -13,7 +17,7 @@ public partial class EnemyView : IdentifiableView
 
     public override void Init()
     {
-        GetComponent<SpriteRenderer>().sortingLayerName = $"Line{Line}";
+        GetComponent<SortingGroup>().sortingLayerName = $"Line{Line}";
         gameObject.layer = LayerMask.NameToLayer($"Enemy{Line}");
         _mask = LayerMask.GetMask("Tower");
 
@@ -36,12 +40,20 @@ public partial class EnemyView : IdentifiableView
 
             if (hit != 0)
             {
+                if (!_animator.GetBool(_attackAnimName))
+                    _animator.SetBool(_attackAnimName, true);
+
                 DetectSignal.Dispatch(m_Result[0].collider);
 
                 yield return new WaitForSeconds(EnemyData.AttackSpeed);
             }
             else
+            {
+                if(_animator.GetBool(_attackAnimName))
+                    _animator.SetBool(_attackAnimName, false);
+
                 transform.position += Vector3.left * EnemyData.MovementSpeed * Time.deltaTime;
+            }
 
             yield return null;
         }

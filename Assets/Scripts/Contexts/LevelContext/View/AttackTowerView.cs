@@ -20,13 +20,13 @@ public class AttackTowerView : TowerView
 
         while (true)
         {
-            int hit = Physics2D.RaycastNonAlloc(transform.position, Vector3.right, m_Result, TowerData.AttackDistance, _mask);
+            int hit = Physics2D.RaycastNonAlloc(transform.position, Vector3.right, m_Result, TowerData.ActuationDistance, _mask);
 
             if (hit != 0)
             {
                 DetectSignal.Dispatch(m_Result[0].distance);
 
-                yield return new WaitForSeconds(TowerData.AttackSpeed);
+                yield return new WaitForSeconds(TowerData.AbilityCooldown);
             }
 
             yield return new WaitForFixedUpdate();

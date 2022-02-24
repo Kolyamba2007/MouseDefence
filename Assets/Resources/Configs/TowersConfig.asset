@@ -49,40 +49,40 @@ MonoBehaviour:
     - _buttonSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
       _maxHealth: 100
       _damage: 10
-      _attackSpeed: 2
-      _attackDistance: 10
+      _abilityCooldown: 2
+      _actuationDistance: 10
       _cost: 100
-      _cooldown: 10
+      _reload: 10
       _powerUsage: 1
       _projectileView: {fileID: 765509448095150814, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
       _projectileSpeed: 5
     - _buttonSprite: {fileID: 21300000, guid: cde89bc4303439343b37f582a5cbb22e, type: 3}
       _maxHealth: 100
       _damage: 60
-      _attackSpeed: 3
-      _attackDistance: 10
+      _abilityCooldown: 3
+      _actuationDistance: 10
       _cost: 125
-      _cooldown: 12
+      _reload: 12
       _powerUsage: 2
       _projectileView: {fileID: 4854664167027152301, guid: d0fafd99fe5997a4584896bafc23c5fe, type: 3}
       _projectileSpeed: 3
     - _buttonSprite: {fileID: 21300000, guid: 4f51fa0f0b773204090e0759719f5d8a, type: 3}
       _maxHealth: 100
       _damage: 50
-      _attackSpeed: 15
-      _attackDistance: 0
+      _abilityCooldown: 15
+      _actuationDistance: 0
       _cost: 50
-      _cooldown: 5
+      _reload: 5
       _powerUsage: 1
       _projectileView: {fileID: -6154375976672527849, guid: 3f30dbb1ffda6c24fa7d67877b54cf6c, type: 3}
       _projectileSpeed: 0
     - _buttonSprite: {fileID: 21300000, guid: ff3652f791355b643af1bdc37a4f4ba2, type: 3}
       _maxHealth: 100
       _damage: 0
-      _attackSpeed: 0
-      _attackDistance: 0
+      _abilityCooldown: 0
+      _actuationDistance: 0
       _cost: 50
-      _cooldown: 15
+      _reload: 15
       _powerUsage: 3
       _projectileView: {fileID: 0}
       _projectileSpeed: 0
