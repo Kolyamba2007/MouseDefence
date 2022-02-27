@@ -12,16 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d1dc2c033d92f41bd89d7bd843c4c9, type: 3}
   m_Name: Level1
   m_EditorClassIdentifier: 
-  _cheeseCount: 250
+  _cheeseCount: 350
   _availableTowers:
   - Laser Turret
   - Generator
   _enemiesSpawnData:
-  - _enemyID: AssaultRat
+  - _enemyID: BaseRat
     _lineNumber: 2
     _breakTime: 4
-  - _enemyID: ShieldRat
-    _lineNumber: 4
+  - _enemyID: BaseRat
+    _lineNumber: 2
     _breakTime: 10
   - _enemyID: BaseRat
     _lineNumber: 2
@@ -30,9 +30,9 @@ MonoBehaviour:
     _lineNumber: 2
     _breakTime: 12
   - _enemyID: BaseRat
-    _lineNumber: 4
+    _lineNumber: 2
     _breakTime: 3
   - _enemyID: BaseRat
-    _lineNumber: 4
+    _lineNumber: 2
     _breakTime: 0
-  _preparationTime: 15
+  _preparationTime: 5

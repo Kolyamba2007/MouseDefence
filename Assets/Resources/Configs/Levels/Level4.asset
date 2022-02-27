@@ -12,28 +12,86 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56d1dc2c033d92f41bd89d7bd843c4c9, type: 3}
   m_Name: Level4
   m_EditorClassIdentifier: 
-  _cheeseCount: 1000
+  _cheeseCount: 700
   _availableTowers:
+  - Laser Turret
   - Cheese Converter
   - Generator
   - Catapult
   _enemiesSpawnData:
   - _enemyID: BaseRat
-    _lineNumber: 3
-    _breakTime: 0.2
-  - _enemyID: MuscleRat
-    _lineNumber: 3
-    _breakTime: 0.2
-  - _enemyID: ShieldRat
-    _lineNumber: 3
-    _breakTime: 0.2
-  - _enemyID: MuscleRat
-    _lineNumber: 3
-    _breakTime: 0.2
-  - _enemyID: ShieldRat
-    _lineNumber: 3
-    _breakTime: 0.2
+    _lineNumber: 1
+    _breakTime: 0
   - _enemyID: AssaultRat
     _lineNumber: 3
-    _breakTime: 0.2
-  _preparationTime: 4
+    _breakTime: 6
+  - _enemyID: AssaultRat
+    _lineNumber: 4
+    _breakTime: 7
+  - _enemyID: ShieldRat
+    _lineNumber: 3
+    _breakTime: 9
+  - _enemyID: AssaultRat
+    _lineNumber: 1
+    _breakTime: 7
+  - _enemyID: BaseRat
+    _lineNumber: 2
+    _breakTime: 6
+  - _enemyID: AssaultRat
+    _lineNumber: 5
+    _breakTime: 9
+  - _enemyID: AssaultRat
+    _lineNumber: 5
+    _breakTime: 0
+  - _enemyID: BaseRat
+    _lineNumber: 2
+    _breakTime: 0
+  - _enemyID: BaseRat
+    _lineNumber: 3
+    _breakTime: 0
+  - _enemyID: MuscleRat
+    _lineNumber: 4
+    _breakTime: 8
+  - _enemyID: MuscleRat
+    _lineNumber: 3
+    _breakTime: 9
+  - _enemyID: ShieldRat
+    _lineNumber: 1
+    _breakTime: 9
+  - _enemyID: BaseRat
+    _lineNumber: 2
+    _breakTime: 7
+  - _enemyID: BaseRat
+    _lineNumber: 2
+    _breakTime: 9
+  - _enemyID: AssaultRat
+    _lineNumber: 3
+    _breakTime: 0
+  - _enemyID: ShieldRat
+    _lineNumber: 5
+    _breakTime: 0
+  - _enemyID: BaseRat
+    _lineNumber: 3
+    _breakTime: 0
+  - _enemyID: BaseRat
+    _lineNumber: 5
+    _breakTime: 6
+  - _enemyID: AssaultRat
+    _lineNumber: 2
+    _breakTime: 6
+  - _enemyID: AssaultRat
+    _lineNumber: 3
+    _breakTime: 7
+  - _enemyID: BaseRat
+    _lineNumber: 3
+    _breakTime: 9
+  - _enemyID: AssaultRat
+    _lineNumber: 4
+    _breakTime: 0
+  - _enemyID: MuscleRat
+    _lineNumber: 2
+    _breakTime: 0
+  - _enemyID: MuscleRat
+    _lineNumber: 3
+    _breakTime: 0
+  _preparationTime: 8

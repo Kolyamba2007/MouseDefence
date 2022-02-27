@@ -48,21 +48,21 @@ MonoBehaviour:
     _values:
     - _maxHealth: 50
       _damage: 10
-      _attackCooldown: 2
+      _attackCooldown: 1.5
       _attackDistance: 0.6
       _movementSpeed: 0.5
     - _maxHealth: 100
       _damage: 10
-      _attackCooldown: 2
+      _attackCooldown: 1.5
       _attackDistance: 0.6
       _movementSpeed: 0.4
-    - _maxHealth: 200
+    - _maxHealth: 160
       _damage: 70
-      _attackCooldown: 5
+      _attackCooldown: 1.08
       _attackDistance: 0.66
       _movementSpeed: 0.25
-    - _maxHealth: 50
+    - _maxHealth: 60
       _damage: 12
-      _attackCooldown: 2
+      _attackCooldown: 1.5
       _attackDistance: 0.6
       _movementSpeed: 1.2

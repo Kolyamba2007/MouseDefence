@@ -58,7 +58,7 @@ MonoBehaviour:
       _projectileSpeed: 5
     - _buttonSprite: {fileID: 21300000, guid: cde89bc4303439343b37f582a5cbb22e, type: 3}
       _maxHealth: 100
-      _damage: 60
+      _damage: 15
       _abilityCooldown: 3
       _actuationDistance: 10
       _cost: 125
@@ -72,7 +72,7 @@ MonoBehaviour:
       _abilityCooldown: 15
       _actuationDistance: 0
       _cost: 50
-      _reload: 5
+      _reload: 6
       _powerUsage: 1
       _projectileView: {fileID: -6154375976672527849, guid: 3f30dbb1ffda6c24fa7d67877b54cf6c, type: 3}
       _projectileSpeed: 0
@@ -82,7 +82,7 @@ MonoBehaviour:
       _abilityCooldown: 0
       _actuationDistance: 0
       _cost: 50
-      _reload: 15
-      _powerUsage: 3
+      _reload: 12
+      _powerUsage: 4
       _projectileView: {fileID: 0}
       _projectileSpeed: 0
