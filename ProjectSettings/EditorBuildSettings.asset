@@ -11,13 +11,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game.unity
     guid: 77c241ba72d44964a965a1fc76b0fd7e
-  - enabled: 0
-    path: Assets/Plugins/StrangeIoC/examples/Assets/scenes/multiplecontexts/main.unity
-    guid: c8ed8038df3b647b68e612bd6fde86e0
-  - enabled: 0
-    path: Assets/Plugins/StrangeIoC/examples/Assets/scenes/multiplecontexts/social.unity
-    guid: ca117a9bbd0d14ec294e0e9ae05a2103
-  - enabled: 0
-    path: Assets/Plugins/StrangeIoC/examples/Assets/scenes/multiplecontexts/game.unity
-    guid: 63cc202a6aefd4364ab9d942a24c0716
   m_configObjects: {}

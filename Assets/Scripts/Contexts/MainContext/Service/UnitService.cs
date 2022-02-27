@@ -39,9 +39,11 @@ public class UnitService : IUnitService
 
     public void SetDamage(IdentifiableView view, int damage)
     {
-        var health = UnitState.Health[view.ID] -= damage;
-
-        if (health <= 0) KillUnit(view);
+        if (UnitState.Health.TryGetValue(view.ID, out int health))
+        {
+            health = UnitState.Health[view.ID] -= damage;
+            if (health <= 0) KillUnit(view);
+        }
     }
 
     private void KillUnit(IdentifiableView view) 

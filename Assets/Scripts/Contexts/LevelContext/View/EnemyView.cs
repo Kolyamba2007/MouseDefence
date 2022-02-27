@@ -9,6 +9,7 @@ public partial class EnemyView : IdentifiableView
     [SerializeField] private string _attackAnimName;
 
     private RaycastHit2D[] m_Result = new RaycastHit2D[1];
+    private int hit;
     private LayerMask _mask;
 
     public EnemyData EnemyData { get; private set; }
@@ -36,16 +37,12 @@ public partial class EnemyView : IdentifiableView
     {
         while (true)
         {
-            int hit = Physics2D.RaycastNonAlloc(transform.position, Vector3.left, m_Result, EnemyData.AttackDistance, _mask);
+            hit = Physics2D.RaycastNonAlloc(transform.position, Vector3.left, m_Result, EnemyData.AttackDistance, _mask);
 
             if (hit != 0)
             {
                 if (!_animator.GetBool(_attackAnimName))
                     _animator.SetBool(_attackAnimName, true);
-
-                DetectSignal.Dispatch(m_Result[0].collider);
-
-                yield return new WaitForSeconds(EnemyData.AttackCooldown);
             }
             else
             {
@@ -57,5 +54,11 @@ public partial class EnemyView : IdentifiableView
 
             yield return null;
         }
+    }
+
+    private void HandleAnimEvent()
+    {
+        if(hit != 0)
+            DetectSignal.Dispatch(m_Result[0].collider);
     }
 }
