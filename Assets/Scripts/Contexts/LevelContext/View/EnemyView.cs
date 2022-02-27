@@ -45,7 +45,7 @@ public partial class EnemyView : IdentifiableView
 
                 DetectSignal.Dispatch(m_Result[0].collider);
 
-                yield return new WaitForSeconds(EnemyData.AttackSpeed);
+                yield return new WaitForSeconds(EnemyData.AttackCooldown);
             }
             else
             {

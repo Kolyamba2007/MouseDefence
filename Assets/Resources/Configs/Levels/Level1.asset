@@ -17,7 +17,7 @@ MonoBehaviour:
   - Laser Turret
   - Generator
   _enemiesSpawnData:
-  - _enemyID: ShieldRat
+  - _enemyID: AssaultRat
     _lineNumber: 2
     _breakTime: 4
   - _enemyID: ShieldRat
