@@ -146,6 +146,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Laser Turret
+  _spriteRenderer: {fileID: 115710794835672579}
   _firePoint: {fileID: 7745095132869147975}
 --- !u!1 &9071884119550294996
 GameObject:

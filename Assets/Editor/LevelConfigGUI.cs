@@ -118,18 +118,32 @@ public class LevelConfigGUI : Editor
             }
 
             _levelConfig.EnemiesSpawnData.Clear();
-            for (int i = 0; i < _enemyCount; i++)
+            if(_enemyCount != 0)
             {
+                for (int i = 0; i < _enemyCount - 1; i++)
+                {
+                    GUILayout.BeginHorizontal();
+                        _enemyIndex[i] = EditorGUILayout.Popup(_enemyIndex[i], _enemySelection.ToArray());
+                        _enemyLineNumber[i] = EditorGUILayout.IntField(_enemyLineNumber[i]);
+                        _enemyBreakTime[i] = EditorGUILayout.FloatField(_enemyBreakTime[i]);
+                    GUILayout.EndHorizontal();
+
+                    if (_enemyLineNumber[i] < 1 || _enemyLineNumber[i] > _maxLineCount) _enemyLineNumber[i] = 1;
+                    if (_enemyBreakTime[i] < 0) _enemyBreakTime[i] = 0;
+
+                    _levelConfig.EnemiesSpawnData.Add(new EnemySpawnEventData(_enemySelection[_enemyIndex[i]], _enemyLineNumber[i], _enemyBreakTime[i]));
+                }
+
+                int last = _enemyCount - 1;
                 GUILayout.BeginHorizontal();
-                    _enemyIndex[i] = EditorGUILayout.Popup(_enemyIndex[i], _enemySelection.ToArray());
-                    _enemyLineNumber[i] = EditorGUILayout.IntField(_enemyLineNumber[i]);
-                    _enemyBreakTime[i] = EditorGUILayout.FloatField(_enemyBreakTime[i]);
+                    _enemyIndex[last] = EditorGUILayout.Popup(_enemyIndex[last], _enemySelection.ToArray());
+                    _enemyLineNumber[last] = EditorGUILayout.IntField(_enemyLineNumber[last]);
+                    EditorGUILayout.FloatField(0);
                 GUILayout.EndHorizontal();
 
-                if (_enemyLineNumber[i] < 1 || _enemyLineNumber[i] > _maxLineCount) _enemyLineNumber[i] = 1;
-                if (_enemyBreakTime[i] < 0) _enemyBreakTime[i] = 0;
+                if (_enemyLineNumber[last] < 1 || _enemyLineNumber[last] > _maxLineCount) _enemyLineNumber[last] = 1;
 
-                _levelConfig.EnemiesSpawnData.Add(new EnemySpawnEventData(_enemySelection[_enemyIndex[i]], _enemyLineNumber[i], _enemyBreakTime[i]));
+                _levelConfig.EnemiesSpawnData.Add(new EnemySpawnEventData(_enemySelection[_enemyIndex[last]], _enemyLineNumber[last], 0));
             }
         GUILayout.EndVertical();
 
