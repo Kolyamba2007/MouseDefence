@@ -15,7 +15,7 @@ MonoBehaviour:
   _cheeseCount: 350
   _availableTowers:
   - Laser Turret
-  - Generator
+  - Small Generator
   _enemiesSpawnData:
   - _enemyID: BaseRat
     _lineNumber: 2

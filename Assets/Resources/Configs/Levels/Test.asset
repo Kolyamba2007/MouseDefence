@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cheeseCount: 1000
   _availableTowers:
+  - Small Generator
+  - Big Generator
   - Laser Turret
   - Catapult
-  - Cheese Converter
-  - Generator
   _enemiesSpawnData:
   - _enemyID: BaseRat
     _lineNumber: 2

@@ -39,12 +39,14 @@ MonoBehaviour:
     - Laser Turret
     - Catapult
     - Cheese Converter
-    - Generator
+    - Big Generator
+    - Small Generator
     _keys:
     - Laser Turret
     - Catapult
     - Cheese Converter
-    - Generator
+    - Big Generator
+    - Small Generator
     _values:
     - _buttonSprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
       _maxHealth: 100
@@ -77,12 +79,22 @@ MonoBehaviour:
       _projectileView: {fileID: -6154375976672527849, guid: 3f30dbb1ffda6c24fa7d67877b54cf6c, type: 3}
       _projectileSpeed: 0
     - _buttonSprite: {fileID: 21300000, guid: ff3652f791355b643af1bdc37a4f4ba2, type: 3}
+      _maxHealth: 120
+      _damage: 0
+      _abilityCooldown: 0
+      _actuationDistance: 0
+      _cost: 75
+      _reload: 15
+      _powerUsage: 5
+      _projectileView: {fileID: 0}
+      _projectileSpeed: 0
+    - _buttonSprite: {fileID: 21300000, guid: 92a62ae6701bb6b45b3ade3eafd758bd, type: 3}
       _maxHealth: 100
       _damage: 0
       _abilityCooldown: 0
       _actuationDistance: 0
       _cost: 50
       _reload: 12
-      _powerUsage: 4
+      _powerUsage: 3
       _projectileView: {fileID: 0}
       _projectileSpeed: 0

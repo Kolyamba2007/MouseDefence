@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _cheeseCount: 500
   _availableTowers:
-  - Generator
+  - Big Generator
   - Cheese Converter
   - Laser Turret
   _enemiesSpawnData:
@@ -62,5 +62,5 @@ MonoBehaviour:
     _breakTime: 5
   - _enemyID: MuscleRat
     _lineNumber: 5
-    _breakTime: 2
+    _breakTime: 0
   _preparationTime: 7
