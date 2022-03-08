@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class AttackTowerView : TowerView
 {
+    [SerializeField] private Animator _animator;
+    [SerializeField] private string _attackTriggerName;
+
     [SerializeField] private Transform _firePoint;
 
     private Coroutine _coroutine;
@@ -24,7 +27,7 @@ public class AttackTowerView : TowerView
 
             if (hit != 0)
             {
-                DetectSignal.Dispatch(m_Result[0].distance);
+                _animator.SetTrigger(_attackTriggerName);
 
                 yield return new WaitForSeconds(TowerData.AbilityCooldown);
             }
@@ -42,5 +45,10 @@ public class AttackTowerView : TowerView
     {
         if (_coroutine != null)
             StopCoroutine(_coroutine);
+    }
+
+    private void HandleAnimEvent()
+    {
+        DetectSignal.Dispatch(m_Result[0].distance);
     }
 }

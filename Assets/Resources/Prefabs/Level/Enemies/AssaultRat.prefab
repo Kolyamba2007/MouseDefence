@@ -1489,6 +1489,7 @@ MonoBehaviour:
   _name: AssaultRat
   _animator: {fileID: 1182111239653848844}
   _attackAnimName: isAttack
+  _sortingGroup: {fileID: -5618669818546263417}
 --- !u!1 &5979990242123530951
 GameObject:
   m_ObjectHideFlags: 0

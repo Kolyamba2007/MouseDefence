@@ -91,6 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3969142931730668602}
+  - component: {fileID: 6434204313465571124}
   - component: {fileID: 1759864862013589414}
   - component: {fileID: 5748760882569684612}
   - component: {fileID: -1143709150473496625}
@@ -116,6 +117,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!210 &6434204313465571124
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777123092715112389}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
 --- !u!61 &1759864862013589414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -176,4 +188,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Small Generator
-  _spriteRenderer: {fileID: 6484735784723701912}
+  _sortingGroup: {fileID: 6434204313465571124}

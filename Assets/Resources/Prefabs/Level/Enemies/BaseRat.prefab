@@ -1010,6 +1010,7 @@ MonoBehaviour:
   _name: BaseRat
   _animator: {fileID: 5344278075089292783}
   _attackAnimName: isAttack
+  _sortingGroup: {fileID: 1198324685898287755}
 --- !u!1 &6960062182008869497
 GameObject:
   m_ObjectHideFlags: 0

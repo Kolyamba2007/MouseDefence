@@ -8,6 +8,8 @@ public partial class EnemyView : IdentifiableView
     [SerializeField] private Animator _animator;
     [SerializeField] private string _attackAnimName;
 
+    [SerializeField] private SortingGroup _sortingGroup;
+
     private RaycastHit2D[] m_Result = new RaycastHit2D[1];
     private int hit;
     private LayerMask _mask;
@@ -18,7 +20,7 @@ public partial class EnemyView : IdentifiableView
 
     public override void Init()
     {
-        GetComponent<SortingGroup>().sortingLayerName = $"Line{Line}";
+        _sortingGroup.sortingLayerName = $"Line{Line}";
         gameObject.layer = LayerMask.NameToLayer($"Enemy{Line}");
         _mask = LayerMask.GetMask("Tower");
 

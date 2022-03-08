@@ -747,6 +747,7 @@ MonoBehaviour:
   _name: MuscleRat
   _animator: {fileID: 8754478821525119578}
   _attackAnimName: isAttack
+  _sortingGroup: {fileID: -2295065780820587539}
 --- !u!1 &3835305038387765115
 GameObject:
   m_ObjectHideFlags: 0

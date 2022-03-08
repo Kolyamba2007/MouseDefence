@@ -1494,6 +1494,7 @@ MonoBehaviour:
   _name: ShieldRat
   _animator: {fileID: 7467355724393749760}
   _attackAnimName: isAttack
+  _sortingGroup: {fileID: 7467355724393749764}
 --- !u!1 &7472288235444267582
 GameObject:
   m_ObjectHideFlags: 0

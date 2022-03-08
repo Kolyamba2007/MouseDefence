@@ -10,6 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3969142931730668602}
   - component: {fileID: 115710794835672579}
+  - component: {fileID: 8732847915305144577}
+  - component: {fileID: 4786856809228361213}
   - component: {fileID: 1759864862013589414}
   - component: {fileID: 5748760882569684612}
   - component: {fileID: -22267468331183}
@@ -74,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: d5d81f0d4093b474e874392a889da1d1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -86,6 +88,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!210 &8732847915305144577
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777123092715112389}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+--- !u!95 &4786856809228361213
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8777123092715112389}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5169ac0625de37d49ba81a07d67fcd13, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!61 &1759864862013589414
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -146,7 +178,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Laser Turret
-  _spriteRenderer: {fileID: 115710794835672579}
+  _sortingGroup: {fileID: 8732847915305144577}
+  _animator: {fileID: 4786856809228361213}
+  _attackTriggerName: Attack
   _firePoint: {fileID: 7745095132869147975}
 --- !u!1 &9071884119550294996
 GameObject:

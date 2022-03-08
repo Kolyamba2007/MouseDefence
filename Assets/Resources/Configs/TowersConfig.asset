@@ -58,7 +58,7 @@ MonoBehaviour:
       _powerUsage: 1
       _projectileView: {fileID: 765509448095150814, guid: af25fdc9b41538a498f4f54ce6fb3e8f, type: 3}
       _projectileSpeed: 5
-    - _buttonSprite: {fileID: 21300000, guid: cde89bc4303439343b37f582a5cbb22e, type: 3}
+    - _buttonSprite: {fileID: 21300000, guid: 126e7322fde5eea43bb53f1781249675, type: 3}
       _maxHealth: 100
       _damage: 15
       _abilityCooldown: 3

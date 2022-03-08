@@ -1,9 +1,10 @@
 using strange.extensions.signal.impl;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public partial class TowerView : IdentifiableView
 {
-    [SerializeField] private SpriteRenderer _spriteRenderer;
+    [SerializeField] private SortingGroup _sortingGroup;
 
     public TowerData TowerData { get; private set; }
 
@@ -11,7 +12,7 @@ public partial class TowerView : IdentifiableView
 
     public override void Init()
     {
-        _spriteRenderer.sortingLayerName = $"Line{Line}";
+        _sortingGroup.sortingLayerName = $"Line{Line}";
         InitFinishSignal.Dispatch();
     }
 
